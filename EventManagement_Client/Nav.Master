@@ -1,0 +1,296 @@
+﻿<%@ Master Language="C#"
+    AutoEventWireup="true"
+    CodeBehind="Nav.Master.cs"
+    Inherits="KMC_EventManagement_Client.NavMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head runat="server">
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>
+        <asp:ContentPlaceHolder
+            ID="TitleContent"
+            runat="server">
+            KMC Event Management
+        </asp:ContentPlaceHolder>
+    </title>
+
+    <!-- Main CSS -->
+    <link
+        href="<%= ResolveUrl("~/Content/kmc-style.css") %>"
+        rel="stylesheet"
+        type="text/css" />
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <asp:ContentPlaceHolder
+        ID="HeadContent"
+        runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<body>
+
+<form id="form1"
+      runat="server"
+      enctype="multipart/form-data">
+
+    <!-- =========================
+         NAVIGATION
+         ========================= -->
+
+    <header class="main-header">
+
+        <div class="nav-container">
+
+            <!-- BRAND -->
+
+            <a href="<%= ResolveUrl("~/Default.aspx") %>"
+               class="brand">
+
+                <div class="brand-text">
+
+                    <span class="brand-title">
+                        Kandy Municipal Council
+                    </span>
+
+                    <span class="brand-subtitle">
+                        Event Management Platform
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- NAVIGATION LINKS -->
+
+            <nav class="nav-links">
+
+                <a href="<%= ResolveUrl("~/Default.aspx") %>">
+                    Home
+                </a>
+
+                <a href="<%= ResolveUrl("~/Default.aspx#events") %>">
+                    Events
+                </a>
+
+                <a href="<%= ResolveUrl("~/About.aspx") %>">
+                    About
+                </a>
+
+                <a href="<%= ResolveUrl("~/Contact.aspx") %>">
+                    Contact
+                </a>
+
+
+                <!-- PUBLIC USER -->
+
+                <asp:PlaceHolder
+                    ID="phPublicNavigation"
+                    runat="server">
+
+                    <a href="<%= ResolveUrl("~/Login.aspx") %>"
+                       class="login-link">
+                        Organizer Login
+
+                    </a>
+
+                </asp:PlaceHolder>
+
+
+                <!-- ORGANIZER USER -->
+
+                <asp:PlaceHolder
+                    ID="phOrganizerNavigation"
+                    runat="server"
+                    Visible="false">
+
+                    <a href="<%= ResolveUrl("~/OrganizerDashboard.aspx") %>">
+                        Dashboard
+
+                    </a>
+
+                    <a href="<%= ResolveUrl("~/AddEvent.aspx") %>"
+                       class="create-event-link">
+                        Create Event
+
+                    </a>
+
+                    <a href="<%= ResolveUrl("~/Logout.aspx") %>"
+                       class="logout-button">
+                        Logout
+
+                    </a>
+
+                </asp:PlaceHolder>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         PAGE CONTENT
+         ========================= -->
+
+    <main class="main-content">
+
+        <asp:ContentPlaceHolder
+            ID="MainContent"
+            runat="server">
+        </asp:ContentPlaceHolder>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+
+    <footer class="main-footer">
+
+        <div class="footer-container">
+
+            <!-- ABOUT -->
+
+            <div class="footer-column footer-about">
+
+                <div class="footer-brand">
+
+                    <h3>
+                        Kandy Municipal Council
+                    </h3>
+
+                </div>
+
+                <p>
+                    Discover and participate in events
+                    happening across the city of Kandy.
+                    Our platform connects citizens,
+                    community groups and event organizers
+                    through one centralized system.
+                </p>
+
+            </div>
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="<%= ResolveUrl("~/Default.aspx") %>">
+                    <i class="fa-solid fa-angle-right"></i>
+                    Home
+                </a>
+
+                <a href="<%= ResolveUrl("~/Default.aspx#events") %>">
+                    <i class="fa-solid fa-angle-right"></i>
+                    Explore Events
+                </a>
+
+                <a href="<%= ResolveUrl("~/About.aspx") %>">
+                    <i class="fa-solid fa-angle-right"></i>
+                    About Us
+                </a>
+
+                <a href="<%= ResolveUrl("~/Contact.aspx") %>">
+                    <i class="fa-solid fa-angle-right"></i>
+                    Contact Us
+                </a>
+
+            </div>
+
+
+            <!-- SERVICES -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Services
+                </h3>
+
+                <p>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Event Discovery
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-user-plus"></i>
+                    Public Registration
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-calendar-check"></i>
+                    Event Management
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-chart-line"></i>
+                    Organizer Dashboard
+                </p>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    <i class="fa-solid fa-landmark"></i>
+                    Kandy Municipal Council
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Kandy, Sri Lanka
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-globe"></i>
+                    City Event Management System
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © <%: DateTime.Now.Year %>
+                Kandy Municipal Council.
+                All Rights Reserved.
+            </p>
+        </div>
+
+    </footer>
+
+</form>
+
+</body>
+
+</html>
